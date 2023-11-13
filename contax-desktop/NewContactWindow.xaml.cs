@@ -17,9 +17,9 @@ namespace contax_desktop
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class NewContactWindow : Window
     {
-        public Window1()
+        public NewContactWindow()
         {
             InitializeComponent();
         }
