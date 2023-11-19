@@ -24,9 +24,10 @@ namespace contax_desktop
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void saveContactBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            // save contact in here
+            Close();
         }
     }
 }

@@ -10,6 +10,6 @@
     Height="450"
     mc:Ignorable="d">
     <StackPanel Margin="10">
-        <Button Click="Button_Click" Content="New Contact" />
+        <Button Click="Btn_Click" Content="New Contact" />
     </StackPanel>
 </Window>
