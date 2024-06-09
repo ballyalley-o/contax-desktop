@@ -34,14 +34,14 @@ namespace contax_desktop
                 Email = emailTextBox.Text,
                 Phone = phoneTextBox.Text
             };
-            string databaseName = "Contacts.db";
-            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string databasePath = System.IO.Path.Combine(folderPath, databaseName);
 
-            SQLiteConnection connection = new SQLiteConnection(databasePath);
-            connection.CreateTable<Contact>();
-            connection.Insert(contact);
-            connection.Close();
+            using (SQLiteConnection connection = new SQLiteConnection(App.databasePath))
+            {
+                connection.CreateTable<Contact>();
+                connection.Insert(contact);
+            }
+            
+
             // save contact in here
             Close();
         }
