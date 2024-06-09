@@ -1,4 +1,6 @@
-﻿using System;
+﻿using contax_desktop.Classes;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +28,20 @@ namespace contax_desktop
 
         private void saveContactBtn_Click(object sender, RoutedEventArgs e)
         {
+            Contact contact = new Contact()
+            {
+                Name = nameTextBox.Text,
+                Email = emailTextBox.Text,
+                Phone = phoneTextBox.Text
+            };
+            string databaseName = "Contacts.db";
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string databasePath = System.IO.Path.Combine(folderPath, databaseName);
+
+            SQLiteConnection connection = new SQLiteConnection(databasePath);
+            connection.CreateTable<Contact>();
+            connection.Insert(contact);
+            connection.Close();
             // save contact in here
             Close();
         }
