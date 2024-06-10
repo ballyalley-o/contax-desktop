@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
+
 namespace contax_desktop
 {
     /// <summary>
@@ -22,9 +23,12 @@ namespace contax_desktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Contact> contacts;
         public MainWindow()
         {
             InitializeComponent();
+
+            contacts = new List<Contact>();
 
             ReadDatabase();
         }
@@ -39,10 +43,22 @@ namespace contax_desktop
 
         void ReadDatabase()
         {
+        
             using(SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.databasePath))
             {
                 conn.CreateTable<Contact>();
-                var contacts = conn.Table<Contact>().ToList();
+                contacts = conn.Table<Contact>().ToList();
+            }
+
+            if (contacts != null)
+            {
+                contactsListView.ItemsSource = contacts;
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            { 
             }
         }
     }
