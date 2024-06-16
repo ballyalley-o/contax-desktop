@@ -40,7 +40,6 @@ namespace contax_desktop
                 connection.CreateTable<Contact>();
                 connection.Insert(contact);
             }
-            
 
             // save contact in here
             Close();
