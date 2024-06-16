@@ -9,6 +9,7 @@
     Width="300"
     Height="300"
     ResizeMode="NoResize"
+    WindowStyle="None"
     mc:Ignorable="d">
     <Grid>
         <StackPanel Margin="10">
