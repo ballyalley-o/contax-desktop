@@ -1,5 +1,6 @@
 ﻿using contax_desktop.Classes;
 using SQLite;
+using System.Runtime.InteropServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace contax_desktop
         public ContactDetailsWindow(Contact contact)
         {
             InitializeComponent();
+
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             this.contact = contact;
             nameTextBox.Text = contact.Name;
