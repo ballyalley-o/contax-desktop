@@ -27,6 +27,13 @@ namespace contax_desktop
 
             Owner = Application.Current.MainWindow;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+            Deactivated += NewContactWindow_Deactivated;
+        }
+
+        private void NewContactWindow_Deactivated(object? sender, EventArgs e)
+        {
+          Close();
         }
 
         private void saveContactBtn_Click(object sender, RoutedEventArgs e)
