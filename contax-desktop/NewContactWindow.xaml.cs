@@ -24,6 +24,9 @@ namespace contax_desktop
         public NewContactWindow()
         {
             InitializeComponent();
+
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
         private void saveContactBtn_Click(object sender, RoutedEventArgs e)
