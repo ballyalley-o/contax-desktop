@@ -77,6 +77,8 @@ namespace contax_desktop
             {
                 ContactDetailsWindow contactDetailsWindow = new ContactDetailsWindow(selectedContact);
                 contactDetailsWindow.ShowDialog();
+
+                ReadDatabase();
             }
 
         }

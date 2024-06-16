@@ -27,10 +27,24 @@ namespace contax_desktop
             InitializeComponent();
 
             this.contact = contact;
+            nameTextBox.Text = contact.Name;
+            emailTextBox.Text = contact.Email;
+            phoneTextBox.Text = contact.Phone;
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
+            contact.Name = nameTextBox.Text;
+            contact.Email = emailTextBox.Text;
+            contact.Phone = phoneTextBox.Text;
+
+            using (SQLiteConnection connection = new(App.databasePath))
+            {
+                connection.CreateTable<Contact>();
+                connection.Update(contact);
+            }
+
+            Close();
 
         }
 
