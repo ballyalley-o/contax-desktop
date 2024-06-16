@@ -22,6 +22,7 @@ namespace contax_desktop
     /// </summary>
     public partial class ContactDetailsWindow : Window
     {
+
         Contact contact;
         public ContactDetailsWindow(Contact contact)
         {
@@ -34,6 +35,13 @@ namespace contax_desktop
             nameTextBox.Text = contact.Name;
             emailTextBox.Text = contact.Email;
             phoneTextBox.Text = contact.Phone;
+
+            Deactivated += ContactDetailsWindow_Deactivated;
+        }
+
+        private void ContactDetailsWindow_Deactivated(object sender, System.EventArgs e)
+        {
+            Close();
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
@@ -64,5 +72,7 @@ namespace contax_desktop
             Close();
 
         }
+
+
     }
 }
